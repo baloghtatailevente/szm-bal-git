@@ -179,6 +179,14 @@
           </div>
         </div>
       </div>
+      <div class="col-sm-6 mb-3 mb-sm-0" style="width: 20%">
+        <div class="card text-center">
+          <div class="card-body">
+            <h3 class="card-title text-success">Egyenleg</h3>
+            <h5 class="card-text">0</h5>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="d-flex justify-content-center mt-3">
@@ -261,6 +269,12 @@
         document.querySelector(
           ".card-title.text-primary"
         ).nextElementSibling.textContent = totalGuests;
+
+        const totalPayment = payments.reduce((sum, p) => sum + p.amount, 0)
+        const paymentCardText = totalPayment + " FT"
+        document.querySelector(
+          ".card-title.text-success"
+        ).nextElementSibling.textContent = paymentCardText;
 
         // Asztalok számítása (egyedi nevek)
         const uniqueTables = new Set(payments.map((p) => p.table));
